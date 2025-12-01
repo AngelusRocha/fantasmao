@@ -114,10 +114,15 @@ export default function Index() {
             <View style={{flexDirection: 'row', gap: 8}}>
                 
                 {/* Badge Satélites (NOVO) */}
-                <View style={[styles.statusBadge, { backgroundColor: '#E3F2FD' }]}>
-                    <Ionicons name="planet-outline" size={14} color="#1976D2" />
-                    <Text style={[styles.statusText, { color: '#1976D2' }]}>
-                        {sats} SAT
+                {/* Badge Satélites INTELIGENTE */}
+                <View style={[styles.statusBadge, { backgroundColor: hasSignal ? '#E3F2FD' : '#EEEEEE' }]}>
+                    <Ionicons 
+                        name={hasSignal ? "planet" : "planet-outline"} 
+                        size={14} 
+                        color={hasSignal ? '#1976D2' : '#999'} 
+                    />
+                    <Text style={[styles.statusText, { color: hasSignal ? '#1976D2' : '#999' }]}>
+                        {sats} SAT {hasSignal ? "" : "(Fraco)"}
                     </Text>
                 </View>
 
